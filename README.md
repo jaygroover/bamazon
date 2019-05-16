@@ -4,6 +4,7 @@ Welcome to Bamazon.  A node terminal app that uses mysql tables.
 Wen you enter the site.  A table of items available to purchase is listed for the user.
 
 ![Movie-this](bamazon2.PNG)
+
 When the user enters the name of the itme they wish to purchase it will then ask how many of that item you wish to purchase.
 Once entered it will display thank you for shopping and will display a new table with a reduced quanity.
 Example shows the purchase of 10 one gallon jugs of milk.  This reduces the quanity from 130 to 120.
