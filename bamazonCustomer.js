@@ -1,4 +1,4 @@
-console.log("test");
+// console.log("test");
 var mysql = require('mysql');
 var inquirer = require('inquirer');
 
@@ -12,10 +12,20 @@ var connection = mysql.createConnection({
 connection.connect(function(err){
     if(err)throwerr;
     console.log('connection successful!');
-    table();
+    makeTable();
 });
 
-function table(){
+
+console.log(`
+   ____  ___    __  ______ _____   ____  _   __
+  / __ )/   |  /  |/  /   /__  /  / __ \/ | / /
+ / __  / /| | / /|_/ / /| | / /  / / / /  |/ /
+/ /_/ / ___ |/ /  / / ___ |/ /__/ /_/ / /|  /
+/____/ |_/ _/  /_/_/  |_/____/\____/_/ |  _/
+`);
+
+
+var makeTable = function(){
 connection.query('SELECT * FROM products', function(err,res){
     if (err) throw err;
     console.table(res);
@@ -31,6 +41,9 @@ var promptCustomer = function(res){
     }])
     .then(function(answer){
         var correct = false;
+        if (answer.choice === "Q") {
+            process.exit();
+          }
         for(var i=0;i<res.length; i++){
             if(res[i].productname==answer.choice){
                 correct=true;
@@ -49,17 +62,24 @@ var promptCustomer = function(res){
                     }
                 }).then(function(answer){
                     if((res[id].stockquantity-answer.quant)>0){
-                        connection.query("UPDATE products SET stockquantity='"+(res[id].stockquantyity-
+                        connection.query("UPDATE products SET stockquantity='"+(res[id].stockquantity-
                             answer.quant)+"' WHERE productname='"+product
                             +"'", function(err, res2){
                                 console.log("product Purchased!!");
+                                console.log("THANK YOU FOR SHOPPING BAMAZON!\n");
                                 makeTable();
                             })
                     }else{
                         Console.LOG("NOT A VALID SELECTION");
+                        promptCustomer(res);
                     }
+                    // console.table(res);
                 })
             }
+        }
+        if(i==res.length && correct==false){
+            console.log("Not a Valid Selection!");
+            promptCustomer(res);
         }
     })
 }
