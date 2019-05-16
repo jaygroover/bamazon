@@ -7,13 +7,13 @@ Whenn you enter the site.  A table of items available to purchase is listed for 
 
 ![Bamazon](bamazon2.PNG)
 
-When the user enters the name of the itme they wish to purchase it will then ask how many of that item you wish to purchase.
-Once entered it will display thank you for shopping and will display a new table with a reduced quanity.
-Example shows the purchase of 10 one gallon jugs of milk.  This reduces the quanity from 130 to 120.
+When the user enters the name of the item they wish to purchase, it will then ask how many of that item you wish to purchase.
+Once entered, it will display "thank you for shopping" and will display a new table with a reduced quanity as shown above.
+This example shows the purchase of 10 one gallon jugs of milk.  This reduces the quanity from 130 to 120.
 
 ![Bamazon](bamazon3.PNG)
 
-The next example show that if you enter a selection that is not in the table it will display, "not a valid selection" and will prompt them to make a new selection.
+The next example shows that if you enter a selection that is not in the table it will display, "not a valid selection" and will prompt them to make a new selection.
 
 
 ![Bamazon](bamazon_q.PNG)
